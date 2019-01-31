@@ -18,7 +18,7 @@
         <li>来自 {{from}}</li>
       </ul>
     </header>
-    <article v-html="post.content"></article>
+    <article v-html="word"></article>
     <div class="comment">
       <ul>
         <li></li>
@@ -46,6 +46,9 @@ export default {
     },
     author() {
       return this.post.author ? this.post.author.loginname : "";
+    },
+    word(){
+      return this.post.content?this.post.content.replace(/\n/g,"<br/>"):''
     }
   },
   methods: {
