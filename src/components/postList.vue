@@ -33,9 +33,9 @@
             <span class="visit_count">{{post.visit_count}}</span>
           </span>
           <span :class="{tab:true,green:post.good||post.top}">{{post|tabFormatter}}</span>
-          <span class="title-wrapper">
-            <a href="#" :title="post.title">{{post.title}}</a>
-          </span>
+            <span class="title-wrapper">
+              <router-link :to="{name:'article',params:{id:post.id}}" :title="post.title">{{post.title}}</router-link>
+            </span>         
           <time>{{post.last_reply_at|formatDate}}</time>
         </li>
       </ul>
