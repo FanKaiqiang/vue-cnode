@@ -1,24 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PostList from '../components/postList'
 import Article from '../components/article'
+import PostList from '../components/postList'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'root',
-      components: {
-        main: PostList
+      name:'root',
+      path:'/',
+      components:{
+        main:PostList
       }
     },
     {
-      path: '/topic/:id',
-      name: 'article',
-      components: {
-        main: Article
+      name:'post_content',
+      path:'/topic/:id',
+      components:{
+        main:Article
       }
     }
   ]

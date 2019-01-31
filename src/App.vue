@@ -1,38 +1,27 @@
 <template>
   <div id="app">
-    <Header/>
-    <main>
-      <router-view name="main" />
-    </main>
+    <Header></Header>
+    <div class="main">
+      <router-view name="slidebar"></router-view>
+      <router-view name="main"></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import Header from "./components/header";
+  import Header from './components/header'
+  import PostList from './components/postList'
 export default {
-  name: "App",
-  components: {
-    Header
+  name: 'App',
+  components:{
+    Header,PostList
   }
-};
+}
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-#app{
-  background-color: #e1e1e1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-main{
+.main{
   width: 80%;
-  margin-top: 20px;
-  border-radius: 4px;
+  margin: 0 auto;
 }
 </style>

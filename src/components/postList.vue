@@ -35,7 +35,7 @@
           <span :class="{tab:true,green:post.good||post.top}">{{post|tabFormatter}}</span>
           <span class="title-wrapper">
             <router-link
-              :to="{name:'article',params:{id:post.id}}"
+              :to="{name:'post_content',params:{id:post.id}}"
               :title="post.title"
             >{{post.title}}</router-link>
           </span>

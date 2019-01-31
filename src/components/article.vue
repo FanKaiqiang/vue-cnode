@@ -64,7 +64,7 @@ export default {
 };
 </script>
 <style>
-/* @import url('../assets/markdown-github.css');  */
+@import url('../assets/markdown-github.css'); 
 .comment > ul {
   list-style: none;
 }
