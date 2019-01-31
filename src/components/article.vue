@@ -18,8 +18,7 @@
         <li>来自 {{from}}</li>
       </ul>
     </header>
-
-    <article></article>
+    <article v-html="post.content"></article>
     <div class="comment">
       <ul>
         <li></li>
@@ -65,6 +64,7 @@ export default {
 };
 </script>
 <style>
+/* @import url('../assets/markdown-github.css');  */
 .comment > ul {
   list-style: none;
 }
@@ -107,5 +107,10 @@ a {
 }
 .message > li::before {
   content: "• ";
+}
+article{
+  padding: 1em 1.5em;
+  font-size: 14px;
+  color: #333;
 }
 </style>
