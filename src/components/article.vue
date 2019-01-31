@@ -48,7 +48,7 @@ export default {
       return this.post.author ? this.post.author.loginname : "";
     },
     word(){
-      return this.post.content?this.post.content.replace(/\n/g,"<br/>"):''
+      return this.post.content?this.post.content.replace(/\n/g,"<br/>").replace("<br><li>","<li>"):''
     }
   },
   methods: {
@@ -56,7 +56,7 @@ export default {
       this.$axios
         .get(`https://cnodejs.org/api/v1/topic/${this.$route.params.id}`)
         .then(res => {
-          console.dir(res.data.data);
+          console.dir(res.data.data.content.replace(/\n/g,"<br/>"));
           this.post = res.data.data;
         });
     }
@@ -67,7 +67,7 @@ export default {
 };
 </script>
 <style>
-@import url('../assets/markdown-github.css'); 
+/* @import url('../assets/markdown-github.css');  */
 .comment > ul {
   list-style: none;
 }
@@ -113,7 +113,26 @@ a {
 }
 article{
   padding: 1em 1.5em;
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
+}
+article img{
+  max-width: 100%
+}
+article ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  margin: -1em 0;
+}
+article li{
+  margin: -0.5em 2em;
+  display: inline-block;
+}
+article  li::before {
+  content: "•";
+  margin-right: .5em;
+  font-size: 18px;
 }
 </style>
