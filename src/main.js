@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import Axios from 'axios'
-// import router from './router'
+import router from './router'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios
@@ -11,7 +11,7 @@ Vue.prototype.$axios = Axios
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  // router,
+  router,
   components: { App },
   template: '<App/>',
 })
