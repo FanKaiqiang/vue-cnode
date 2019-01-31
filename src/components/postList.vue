@@ -22,14 +22,19 @@
     <div class="list">
       <ul>
         <li v-for="(post,key) in posts" :key="key">
-          <img class="avatar" :src="post.author.avatar_url" alt="avatar">
+          <img
+            class="avatar"
+            :src="post.author.avatar_url"
+            alt="avatar"
+            :title="post.author.loginname"
+          >
           <span class="count-wrapper">
             <span class="reply_count">{{post.reply_count}}/</span>
             <span class="visit_count">{{post.visit_count}}</span>
           </span>
           <span :class="{tab:true,green:post.good||post.top}">{{post|tabFormatter}}</span>
           <span class="title-wrapper">
-            <a href="#">{{post.title}}</a>
+            <a href="#" :title="post.title">{{post.title}}</a>
           </span>
           <time>{{post.last_reply_at|formatDate}}</time>
         </li>
@@ -99,6 +104,7 @@ nav {
 .avatar {
   max-width: 30px;
   margin: 0 0.8em;
+  cursor: pointer;
 }
 .list > ul > li {
   height: 3.2em;
@@ -107,6 +113,9 @@ nav {
   align-items: center;
   white-space: nowrap;
   position: relative;
+}
+.list > ul > li:hover {
+  background-color: #f5f5f5;
 }
 .tab {
   margin-left: 0.5em;
@@ -120,7 +129,7 @@ nav {
   background-color: #80bd01;
   color: #fff;
 }
-.count-wrapper{
+.count-wrapper {
   width: 4em;
 }
 .reply_count {
@@ -140,7 +149,6 @@ nav {
 }
 .title-wrapper > a {
   display: inline-block;
-  max-width: 50%;
   text-overflow: ellipsis;
   color: #333;
 }
