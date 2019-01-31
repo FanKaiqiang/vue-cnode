@@ -33,9 +33,12 @@
             <span class="visit_count">{{post.visit_count}}</span>
           </span>
           <span :class="{tab:true,green:post.good||post.top}">{{post|tabFormatter}}</span>
-            <span class="title-wrapper">
-              <router-link :to="{name:'article',params:{id:post.id}}" :title="post.title">{{post.title}}</router-link>
-            </span>         
+          <span class="title-wrapper">
+            <router-link
+              :to="{name:'article',params:{id:post.id}}"
+              :title="post.title"
+            >{{post.title}}</router-link>
+          </span>
           <time>{{post.last_reply_at|formatDate}}</time>
         </li>
       </ul>
@@ -102,7 +105,7 @@ nav {
   background-color: #80bd01;
 }
 .avatar {
-  max-width: 30px;
+  width: 30px;
   margin: 0 0.8em;
   cursor: pointer;
 }

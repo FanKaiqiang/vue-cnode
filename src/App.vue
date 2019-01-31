@@ -9,12 +9,10 @@
 
 <script>
 import Header from "./components/header";
-import PostList from "./components/postList";
 export default {
   name: "App",
   components: {
-    Header,
-    PostList
+    Header
   }
 };
 </script>
@@ -30,6 +28,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 main{
   width: 80%;

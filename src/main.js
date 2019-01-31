@@ -7,15 +7,6 @@ import router from './router'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>',
-})
-
 // 过滤器
 Vue.filter('formatDate', (str) => {
   if (!str) return ''
@@ -41,10 +32,10 @@ Vue.filter('formatDate', (str) => {
 })
 
 Vue.filter('tabFormatter', (post) => {
-  if (post.good == true) {
-    return '精华'
-  } else if (post.top == true) {
+  if (post.top == true) {
     return '置顶'
+  } else if (post.good == true) {
+    return '精华'
   } else if (post.tab == 'ask') {
     return '问答'
   } else if (post.tab == 'share') {
@@ -53,3 +44,11 @@ Vue.filter('tabFormatter', (post) => {
     return '招聘'
   }
 })
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>',
+})
+

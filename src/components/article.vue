@@ -1,11 +1,111 @@
 <template>
-  
+  <div class="article">
+    <header>
+      <div class="titleWrapper">
+        <span :class="{tab:true,green:post.good||post.top}">{{post|tabFormatter}}</span>
+        <h2>{{post.title}}</h2>
+      </div>
+      <ul class="message">
+        <li>
+          发布于
+          <time>{{post.create_at|formatDate}}</time>
+        </li>
+        <li>
+          作者
+          <a href="#">{{author}}</a>
+        </li>
+        <li>{{post.visit_count}}次浏览</li>
+        <li>来自 {{from}}</li>
+      </ul>
+    </header>
+
+    <article></article>
+    <div class="comment">
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-  name: "Article"
-}
+  name: "Article",
+  data() {
+    return {
+      post: []
+    };
+  },
+  computed: {
+    from() {
+      if (this.post.tab == "ask") {
+        return "问答";
+      } else if (this.post.tab == "share") {
+        return "分享";
+      } else {
+        return "招聘";
+      }
+    },
+    author() {
+      return this.post.author ? this.post.author.loginname : "";
+    }
+  },
+  methods: {
+    getData() {
+      this.$axios
+        .get(`https://cnodejs.org/api/v1/topic/${this.$route.params.id}`)
+        .then(res => {
+          console.dir(res.data.data);
+          this.post = res.data.data;
+        });
+    }
+  },
+  beforeMount() {
+    this.getData();
+  }
+};
 </script>
-<style >
+<style>
+.comment > ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.article {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.titleWrapper {
+  margin: 1em 0;
+}
+.titleWrapper > .tab {
+  margin: 0.8em;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #e5e5e5;
+  color: #999;
+}
+.titleWrapper > .tab.green {
+  background-color: #80bd01;
+  color: #fff;
+}
+.titleWrapper > h2 {
+  display: inline-block;
+  color: #333;
+}
+.message{
+  padding-bottom: 1em;
+  border-bottom: 1px solid #e5e5e5;
+}
+.message > li {
+  display: inline-block;
 
+  font-size: 12px;
+  margin-left: 1em;
+}
+.message > li::before {
+  content: "• ";
+}
 </style>
