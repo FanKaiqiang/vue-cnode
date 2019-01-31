@@ -34,6 +34,7 @@ export default {
 .header {
   display: flex;
   background-color: #444;
+  width: 100%;
   height: 50px;
   justify-content: space-between;
   align-items: center;
@@ -52,10 +53,10 @@ li {
 }
 a {
   text-decoration: none;
-  color:#ccc;
+  color: #ccc;
   font-size: 13px;
 }
-a:hover{
-  color: #fff
+a:hover {
+  color: #fff;
 }
 </style>
