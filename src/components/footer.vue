@@ -13,5 +13,6 @@ export default {
   padding: 2em 5em;
   font-size: 12px;
   color: #ababab;
+  align-self: flex-end;
 }
 </style>
