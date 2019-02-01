@@ -10,7 +10,7 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^0.18.0",
