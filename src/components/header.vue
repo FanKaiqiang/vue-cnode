@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <img src="../assets/cnodejs_light.svg" alt="logo">
+    <router-link :to="{name:'root'}">
+      <img src="../assets/cnodejs_light.svg" alt="logo">
+    </router-link>
     <ul>
       <li>
         <a href="#">首页</a>
@@ -38,8 +40,8 @@ export default {
   height: 50px;
   justify-content: space-between;
   align-items: center;
-  > img {
-    max-width: 120px;
+  > a > img {
+    width: 120px;
     margin-left: 65px;
   }
   > ul {

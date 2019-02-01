@@ -12,7 +12,9 @@
         </li>
         <li>
           作者
+          <router-link :to="{name:'userInfo',params:{name:author}}">
           <a href="#">{{author}}</a>
+          </router-link>
         </li>
         <li>{{post.visit_count}}次浏览</li>
         <li>来自 {{from}}</li>
@@ -24,7 +26,9 @@
       <ul>
         <li v-for="(reply,index) in post.replies" :key="index" :id="reply.id">
           <div>
+            <router-link :to="{name:'userInfo',params:{name:reply.author.loginname}}">
             <img class="avatar" :src="reply.author.avatar_url" alt="avatar">
+            </router-link>
           </div>
           <div class="content">
             <div class="authorMessage">
@@ -37,7 +41,6 @@
         </li>
       </ul>
     </div>
-    <footer></footer>
   </div>
 </template>
 <script >

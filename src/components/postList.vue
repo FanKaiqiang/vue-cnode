@@ -22,12 +22,14 @@
     <div class="list">
       <ul>
         <li v-for="(post,key) in posts" :key="key">
-          <img
-            class="avatar"
-            :src="post.author.avatar_url"
-            alt="avatar"
-            :title="post.author.loginname"
-          >
+          <router-link :to="{name:'userInfo',params:{name:post.author.loginname}}">
+            <img
+              class="avatar"
+              :src="post.author.avatar_url"
+              alt="avatar"
+              :title="post.author.loginname"
+            >
+          </router-link>
           <span class="count-wrapper">
             <span class="reply_count">{{post.reply_count}}/</span>
             <span class="visit_count">{{post.visit_count}}</span>
@@ -35,7 +37,7 @@
           <span :class="{tab:true,green:post.good||post.top}">{{post|tabFormatter}}</span>
           <span class="title-wrapper">
             <router-link
-              :to="{name:'post_content',params:{id:post.id}}"
+              :to="{name:'article',params:{id:post.id}}"
               :title="post.title"
             >{{post.title}}</router-link>
           </span>
@@ -68,6 +70,9 @@ export default {
   },
   beforeMount() {
     this.getData();
+  },
+  clickAvatar() {
+    this.getUser();
   }
 };
 </script>
@@ -81,6 +86,7 @@ a {
 
 .post-list {
   background-color: #fff;
+  min-height: 80vh;
   margin-top: 1em;
   > nav {
     display: flex;
@@ -115,10 +121,9 @@ a {
     &:hover {
       background-color: #f5f5f5;
     }
-    > .avatar {
+    > a > .avatar {
       width: 30px;
       margin: 0 0.8em;
-      cursor: pointer;
     }
     > .count-wrapper {
       width: 4em;
