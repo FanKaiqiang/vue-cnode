@@ -5,16 +5,18 @@
       <router-view name="slidebar"></router-view>
       <router-view name="main"></router-view>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
   import Header from './components/header'
   import PostList from './components/postList'
+  import Footer from './components/footer'
 export default {
   name: 'App',
   components:{
-    Header,PostList
+    Header,PostList,Footer
   }
 }
 </script>

@@ -82,8 +82,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" >
-// @import url('../assets/markdown-github.css');
+<style lang="scss">
 .comment > ul {
   list-style: none;
 }
@@ -140,6 +139,9 @@ img {
     background-color: #fff;
     padding: 1em 1.5em;
     font-size: 15px;
+    p {
+      line-height: 25px;
+    }
     color: #333;
     ul {
       display: flex;
@@ -193,6 +195,4 @@ img {
     }
   }
 }
-
-
 </style>
